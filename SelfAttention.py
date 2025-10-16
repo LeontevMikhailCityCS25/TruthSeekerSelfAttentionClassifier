@@ -16,7 +16,7 @@ class SingleHeadSelfAttention:
         return output
 
     def softmax(self, x):
-        e_x = np.exp(x)
+        e_x = np.exp(x - np.max(x))
         normalized = e_x / e_x.sum(axis=-1, keepdims=True)
         return normalized
 
